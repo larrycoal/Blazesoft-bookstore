@@ -1,0 +1,76 @@
+.modal-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.modal {
+  background-color: white;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 10px;
+}
+.header {
+  display: flex;
+  font-size: 1.4rem;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 1rem;
+}
+.header svg {
+  cursor: pointer;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 2rem;
+}
+.form div {
+  display: flex;
+  flex-direction: column;
+}
+.form label {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+.form input {
+  padding: 10px;
+  width: 350px;
+  border-radius: 5px;
+  border: 1px solid black;
+  outline: none;
+}
+.form textarea {
+  height: 100px;
+  padding: 5px;
+}
+.modal .action {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.action button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.btn-secondary {
+  border: 1px solid #ba0001 !important;
+}
+.btn-primary {
+  background-color: rgb(29, 28, 28);
+  color: white;
+}
