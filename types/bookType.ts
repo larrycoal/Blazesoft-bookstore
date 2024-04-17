@@ -1,6 +1,6 @@
 export type Tbook = {
-  name: String;
-  category: String;
-  description: String;
+  name: string;
+  category: string;
+  description: string;
   price: number;
 };
