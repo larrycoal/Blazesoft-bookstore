@@ -5,7 +5,7 @@ import { RiDeleteBin5Fill } from "react-icons/ri";
 import styles from "./book.module.css"
 import { Tbook } from '@/types/bookType';
 
-const index = ({ book, id, handleDelete, handleShowModal }: { book: Tbook, id: number, handleDelete: any, handleShowModal:any }) => {
+const Book = ({ book, id, handleDelete, handleShowModal }: { book: Tbook, id: number, handleDelete: any, handleShowModal:any }) => {
     return (
         <div className={styles.card} key={id}>
             <div className={styles['card-inner']}>
@@ -32,4 +32,4 @@ const index = ({ book, id, handleDelete, handleShowModal }: { book: Tbook, id: n
     );
 };
 
-export default index;
+export default Book;

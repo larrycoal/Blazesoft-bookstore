@@ -5,7 +5,7 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 import { Tbook } from '@/types/bookType';
 import { Tmodal } from '@/types/modalType';
 
-const index = ({ showModal, closeModal, onFormSubmit }: { showModal: Tmodal, closeModal: any, onFormSubmit: any }) => {
+const Modal = ({ showModal, closeModal, onFormSubmit }: { showModal: Tmodal, closeModal: any, onFormSubmit: any }) => {
     const [formData, setFormData] = useState<Tbook>(showModal.book)
     useEffect(() => {
         setFormData(showModal.book)
@@ -86,4 +86,4 @@ const index = ({ showModal, closeModal, onFormSubmit }: { showModal: Tmodal, clo
     );
 };
 
-export default index;
+export default Modal;

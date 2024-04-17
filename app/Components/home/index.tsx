@@ -1,5 +1,5 @@
 "use client"
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { getAllBooks, addBook, deleteBook,editBook } from "@/redux/features/books/booksSlice";
 import { useDispatch } from 'react-redux';
 import styles from "./home.module.css"
@@ -9,7 +9,8 @@ import { AppDispatch, useAppSelector } from '@/redux/store';
 import { Tbook } from '@/types/bookType';
 import { Tmodal } from '@/types/modalType';
 import { Tedit } from '@/types/editType';
-const index = () => {
+
+const Home = () => {
     const [showModal, setShowModal] = useState<Tmodal>({ open: false, mode: "", book: { name: "", category: "", price: 0, description: "" } })
     const [currentId, setCurrentId] = useState<number | any>(null)
     const dispatch = useDispatch<AppDispatch>();
@@ -70,4 +71,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default Home;
