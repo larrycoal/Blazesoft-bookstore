@@ -17,7 +17,7 @@ const Home = () => {
     const { books } = useAppSelector((state) => state.bookReducer.value)
     const fetchAllBooks = useCallback(() => {
         dispatch(getAllBooks())
-    }, [])
+    }, [books])
 
 
     const handleShowModal = (mode: String = "", id: number) => {
@@ -53,7 +53,7 @@ const Home = () => {
 
     const ShowAllBooks = () => {
         return books?.map((book, idx) => (
-            <Book book={book} id={idx} handleDelete={handleDeleteBook} handleShowModal={handleShowModal} />
+            <Book key={idx} book={book} id={idx} handleDelete={handleDeleteBook} handleShowModal={handleShowModal} />
         ))
     }
     return (
