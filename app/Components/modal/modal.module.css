@@ -1,5 +1,5 @@
 .modal-wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
@@ -73,4 +73,12 @@
 .btn-primary {
   background-color: rgb(29, 28, 28);
   color: white;
+}
+@media screen and (max-width:500px){
+    .form input{
+        width: 250px;
+    }
+    .form{
+        padding: 1rem;
+    }
 }

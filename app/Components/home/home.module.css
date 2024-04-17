@@ -17,7 +17,7 @@
   border: none;
   background: #e0e0e0;
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
-  position: absolute;
+  position: fixed;
   right: 2rem;
   bottom: 3rem;
   transition: scale .3s ease-in-out;
@@ -25,4 +25,13 @@
 }
 .btn-wrapper button:hover {
   scale: 1.2;
+}
+@media screen and (max-width:500px) {
+    .btn-wrapper button{
+        height: 70px;
+        width: 70px;
+        box-shadow: none;
+        right: 1rem;
+        bottom: 2rem;
+    }
 }
