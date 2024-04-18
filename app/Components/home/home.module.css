@@ -27,6 +27,11 @@
   scale: 1.2;
 }
 @media screen and (max-width:500px) {
+    .btn-wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .btn-wrapper button{
         height: 70px;
         width: 70px;
