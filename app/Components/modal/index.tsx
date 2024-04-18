@@ -7,6 +7,7 @@ import { Tmodal } from '@/types/modalType';
 
 const Modal = ({ showModal, closeModal, onFormSubmit }: { showModal: Tmodal, closeModal: any, onFormSubmit: any }) => {
     const [formData, setFormData] = useState<Tbook>(showModal.book)
+    const [error, setError] = useState({ error: false, type: "", message: "" })
     useEffect(() => {
         setFormData(showModal.book)
     }, [showModal.mode])
@@ -18,8 +19,24 @@ const Modal = ({ showModal, closeModal, onFormSubmit }: { showModal: Tmodal, clo
 
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
-        onFormSubmit(formData)
-        closeModal()
+        if (formData.name.trim() === "") {
+            setError({ error: true, type: "name-input", message: "Name can not be empty" })
+            return
+        } else if (formData.category.trim() === "") {
+            setError({ error: true, type: "category-input", message: "Category can not be empty" })
+            return
+        } else if (formData.description.trim() === "") {
+            setError({ error: true, type: "description-input", message: "Description can not be empty" })
+            return
+        } else if (formData.price <= 0) {
+            setError({ error: true, type: "price-input", message: "Price has to be greater than 0" })
+            return
+        } else {
+            setError({ error: false, type: "", message: "" })
+            onFormSubmit(formData)
+            closeModal()
+        }
+
     }
     const handleCancel = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
@@ -44,6 +61,7 @@ const Modal = ({ showModal, closeModal, onFormSubmit }: { showModal: Tmodal, clo
                             onChange={handleInputChange}
                             value={formData.name}
                         />
+                        <p className={styles.error}>{error.error && error.type === "name-input" ? error.message:null}</p>
                     </div>
                     <div>
                         <label>Category:</label>
@@ -54,6 +72,7 @@ const Modal = ({ showModal, closeModal, onFormSubmit }: { showModal: Tmodal, clo
                             onChange={handleInputChange}
                             value={formData.category}
                         />
+                        <p className={styles.error}>{error.error && error.type === "category-input" ? error.message : null}</p>
                     </div>
                     <div>
                         <label>Price:</label>
@@ -64,6 +83,7 @@ const Modal = ({ showModal, closeModal, onFormSubmit }: { showModal: Tmodal, clo
                             onChange={handleInputChange}
                             value={formData.price}
                         />
+                        <p className={styles.error}>{error.error && error.type === "price-input" ? error.message : null}</p>
                     </div>
                     <div>
                         <label>Description:</label>
@@ -73,6 +93,7 @@ const Modal = ({ showModal, closeModal, onFormSubmit }: { showModal: Tmodal, clo
                             onChange={handleInputChange}
                             value={formData.description}
                         ></textarea>
+                        <p className={styles.error}>{error.error && error.type === "description-input" ? error.message : null}</p>
                     </div>
                     <div className={styles.action}>
                         <button onClick={handleCancel} className={styles['btn-secondary']}>Cancel</button>
