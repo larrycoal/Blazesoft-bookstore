@@ -68,7 +68,7 @@ const Modal = ({ showModal, closeModal, onFormSubmit }: { showModal: Tmodal, clo
                         <input
                             name='category'
                             type='text'
-                            placeholder='Enter book title'
+                            placeholder='Enter book category'
                             onChange={handleInputChange}
                             value={formData.category}
                         />
